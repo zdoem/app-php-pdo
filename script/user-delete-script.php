@@ -1,6 +1,6 @@
 <?php 
 if(isset($_GET['id'])){
-require_once 'config-db.php';
+require_once '../config-db.php';
 //ประกาศตัวแปรรับค่าจาก param method get
 $id = $_GET['id'];
 $stmt = $conn->prepare('DELETE FROM tbl_member WHERE id=:id');
@@ -20,7 +20,7 @@ echo '
                   title: "ลบข้อมูลสำเร็จ",
                   type: "success"
               }, function() {
-                  window.location = "index.php"; //หน้าที่ต้องการให้กระโดดไป
+                  window.location = "../index.php"; //หน้าที่ต้องการให้กระโดดไป
               });
             }, 1000);
         </script>';
@@ -31,7 +31,7 @@ echo '
                   title: "เกิดข้อผิดพลาด",
                   type: "error"
               }, function() {
-                  window.location = "index.php"; //หน้าที่ต้องการให้กระโดดไป
+                  window.location = "../index.php"; //หน้าที่ต้องการให้กระโดดไป
               });
             }, 1000);
         </script>';

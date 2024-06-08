@@ -5,13 +5,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-        <title>Basic CRUD PHP PDO by devbanban.com 2021</title>
+        <title>ข้อมูล Users</title>
     </head>
     <body>
+
+
         <div class="container">
             <div class="row">
                 <div class="col-md-12"> <br>
-                    <h3>รายการสมาชิก <a href="user-add-form.php" class="btn btn-info">+เพิ่มข้อมูล</a> </h3>
+
+                    <!--   nav menub -->
+                    <?php include 'template-header.php'; ?>
+                    <!--   nav menub -->
+                       
+                    <h3>รายการสมาชิก <a href="user-add-form.php" class="btn btn-primary">+เพิ่มข้อมูล</a> </h3>
                     <table class="table table-striped  table-hover table-responsive table-bordered">
                         <thead>
                             <tr>
@@ -26,7 +33,7 @@
                             <?php
                             //คิวรี่ข้อมูลมาแสดงในตาราง
                             require_once 'config-db.php';
-                            $stmt = $conn->prepare("SELECT* FROM tbl_member");
+                            $stmt = $conn->prepare("SELECT * FROM tbl_member ");
                             $stmt->execute();
                             $result = $stmt->fetchAll();
                             foreach($result as $k) {
@@ -36,15 +43,15 @@
                                 <td><?= $k['name'];?></td>
                                 <td><?= $k['surname'];?></td>
                                 <td><a href="user-edit-form.php?id=<?= $k['id'];?>" class="btn btn-warning btn-sm">แก้ไข</a></td>
-                                <td><a href="user-delete-script.php?id=<?= $k['id'];?>" class="btn btn-danger btn-sm" onclick="return confirm('ยืนยันการลบข้อมูล !!');">ลบ</a></td>
+                                <td><a href="script/user-delete-script.php?id=<?= $k['id'];?>" class="btn btn-danger btn-sm" onclick="return confirm('ยืนยันการลบข้อมูล !!');">ลบ</a></td>
                             </tr>
                             <?php } ?>
                         </tbody>
                     </table>
                 </div>
             </div>
+            <?php include "template-footer.php" ?>
         </div>
 
-        <center>Basic CRUD PHP PDO by devbanban.com 2021</center>
     </body>
 </html>

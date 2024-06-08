@@ -2,7 +2,7 @@
  //ถ้ามีค่าส่งมาจากฟอร์ม
 if(isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['id'])) {
     //ไฟล์เชื่อมต่อฐานข้อมูล
-     require_once 'config-db.php';
+    require_once '../config-db.php';
 //ประกาศตัวแปรรับค่าจากฟอร์ม
 $id = $_POST['id'];
 $name = $_POST['name'];
@@ -27,7 +27,7 @@ $stmt->execute();
                   title: "แก้ไขข้อมูลสำเร็จ",
                   type: "success"
               }, function() {
-                  window.location = "index.php"; //หน้าที่ต้องการให้กระโดดไป
+                  window.location = "../index.php"; //หน้าที่ต้องการให้กระโดดไป
               });
             }, 1000);
         </script>';
@@ -38,7 +38,7 @@ $stmt->execute();
                   title: "เกิดข้อผิดพลาด",
                   type: "error"
               }, function() {
-                  window.location = "index.php"; //หน้าที่ต้องการให้กระโดดไป
+                  window.location = "../index.php"; //หน้าที่ต้องการให้กระโดดไป
               });
             }, 1000);
         </script>';
